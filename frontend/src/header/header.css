@@ -1,0 +1,8 @@
+.navbar-nav {
+    padding-left: 85%;
+}
+
+.navbar-dark .navbar-brand {
+    font-family: 'Caveat', cursive;
+    font-size: 30px;
+}
