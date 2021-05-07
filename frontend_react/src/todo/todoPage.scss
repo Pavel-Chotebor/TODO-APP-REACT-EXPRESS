@@ -1,0 +1,36 @@
+.todoPage {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    z-index: 1;
+    height: 90vh;
+
+    .todoList {
+        z-index: 1;
+        padding: 3% 0;
+        margin: 0 auto;
+        display: grid;
+        width: 100%;
+        grid-template-columns: (1fr 1fr 1fr 1fr);
+        justify-content: center;
+        row-gap: 10%;
+        overflow-y: scroll;
+        height: 80vh;
+    }
+
+    .title {
+        padding: 2% 4%;
+        box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048);
+    }
+
+    .innerBox {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 800px) {
+    .todoList {
+        display: flex;
+        flex-direction:column;
+    }
+}

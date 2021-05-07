@@ -1,0 +1,68 @@
+.todoBox {
+    background: rgb(255, 255, 255);
+    backdrop-filter: blur(45px);
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
+    margin: 0 auto;
+    border-radius: 8px;
+    width: 260px;
+    height: fit-content;
+    color: rgb(32, 68, 102);
+    border: 4px solid white;
+
+    .todoHeader {
+        background-image: url("../assets/gradient-orange.jpg");
+        background-size: 200%;
+        background-position-x: 80%;
+        background-position-y: 20%;
+        min-height: 80px;
+        width: 100%;
+        border-radius: 7px 7px 0 0;
+    }
+
+    .todoInner {
+        padding-top: 5%;
+        text-align: start;
+        padding-left: 20px;
+        box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048);
+    }
+
+    .todoHeader h2 {
+        padding-top: 7%;
+        padding-left: 7%;
+        text-align: justify;
+        font-weight: 600;
+        color: white;
+    }
+
+    .description {
+    }
+
+    .description h3 {
+        font-size: 20px;
+        font-weight: 200;
+    }
+
+    .datesBox {
+        margin-top: 20px;
+        padding-bottom: 9%;
+    }
+
+    // .menuSection {
+    //     background-color:white;
+    //     color:black;
+    // }
+
+    h4 {
+        z-index: -1;
+        position: absolute;
+        font-weight: 600;
+        margin: 10px 0px 0px 20px;
+    }
+}
+
+.todoBox:hover {
+    transform: scale(1.05);
+    transition: 300ms;
+}

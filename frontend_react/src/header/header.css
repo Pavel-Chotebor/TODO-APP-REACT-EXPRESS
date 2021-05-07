@@ -1,0 +1,24 @@
+.bg-dark  {
+    /* background-image: url("../../src/assets/headerBackgound.jpg");
+    background-color: red; */
+}
+
+.navbar-nav {
+    padding-left: 85%;
+}
+
+.navbar-dark .navbar-brand {
+    font-family: "Kristi", cursive;
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+}
+
+img {
+    width: 20px;
+    margin: 0 10px;
+}
+
+/* .addTodoButton button {
+    padding:20px;
+    background-image: url("../assets/addButton.png")
+} */
