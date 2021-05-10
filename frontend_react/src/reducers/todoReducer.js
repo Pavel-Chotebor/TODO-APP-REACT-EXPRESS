@@ -9,19 +9,13 @@ export const todoReducer = (state = [], action) => {
             return [...state, action.payload]
         }
         case todoActions.UPDATE_TODO: {
-            return [...state].map(todo => todo.id === action.payload.id ? todo =action.payload : todo)
+            return [...state].map(todo => todo.id === action.payload.id ? todo = action.payload : todo)
         }
-        case todoActions.CHECK_TODO: {
+        case todoActions.DELETE_TODO: {
             return [...state].filter(todo => todo.id !== action.payload)
         }
-        case todoActions.SET_TODO_EDITED: {
-            return [...state].map(todo => todo.id === action.payload ? { ...todo, isEdited: true } : todo)
-        }
-        case todoActions.SET_TODO_NOT_EDITED: {
-            return [...state].map(todo => todo.id === action.payload ? { ...todo, isEdited: false } : todo)
-        }
         default:
-            return state;
+            return state
     }
 }
 

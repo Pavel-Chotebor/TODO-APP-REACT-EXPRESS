@@ -1,109 +1,80 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import apiService from '../services/apiService'
+import { setUsername, setPassword, setPasswordToRepeat } from '../actions/userActions'
 import { setMessage } from '../actions/popUpMessageActions'
 import {
     BrowserRouter as Router,
     useHistory,
 } from "react-router-dom";
-import './registration.scss'
+import Input from '../common/Input'
+import UserForm from '../common/UserForm'
 
-function Registration({ setMessage }) {
+function Registration({ setUsername, setPassword, setPasswordToRepeat, userInput }) {
     let history = useHistory();
-    const [titleError, setTitleError] = useState('')
-    const [dueDateError, setDueDateError] = useState('')
+    const [registerError, setRegisterError] = useState('')
 
-    const initialValues = {
-        username: '',
-        password: '',
-        passwordToRepeat: '',
-    }
-
-    const [values, setValues] = useState(initialValues);
-    const handleInputChange = (e) => {
-        e.preventDefault()
-        const { name, value } = e.target
-
-        setValues({
-            ...values,
-            [name]: value,
-        })
-    }
-
-    const handleOnClick = () => {
-        if (values.username.length < 4) {
-            setTitleError('username must have at leat 4 characters ')
-        }
-        if (values.password.length < 6) {
-            setDueDateError('username must have at leat 6 characters')
-        }
-        if (values.password != values.passwordToRepeat) {
-            setDueDateError('passwords does not match')
-        }
-        else {
-            const responseFromBE = apiService.req(
+    const handleOnSubmit = async () => {
+        const areInputsValid = Object.values(userInput).every(input => input.isValid)
+        if (areInputsValid) {
+            const responseFromBE = await apiService.req(
                 'POST',
                 '/register',
                 {
-                    username: values.username,
-                    password: values.password
+                    username: userInput.username.value,
+                    password: userInput.password.value,
                 },
                 false
             )
-            if(! responseFromBE.error) {
-                history.push("/login")
-                setMessage('ACCOUNT SUCCESSFULLY CREATED')
+            if (responseFromBE.status === 'error') {
+                setRegisterError('username already exist')
             }
             else {
-                setTitleError('username already exist ')
+                history.push("/login")
+                setMessage('Account successfully created')
             }
+        }
+        else if (userInput.passwordToRepeat.value && !userInput.passwordToRepeat.isValid) {
+            setRegisterError('password does not match')
+        }
+        else {
+            setRegisterError('all fields required')
         }
     }
 
     return (
-        <div className="registrationBox">
-            <div className="formBox">
-                <div className="leftBox">
-                    <h2>SIGN UP!</h2>
-                </div>
-                <form method="post">
-                    <label>
-                        <input
-                            type="text"
-                            maxLength="20"
-                            placeholder={"username"}
-                            onChange={handleInputChange}
-                            value={values.title}
-                            name="username"
-                        />
-                        <p className="errorMessage">{titleError}</p>
-                    </label>
-                    <label>
-                        <input
-                            type="password"
-                            maxLength="70"
-                            placeholder={"password"}
-                            onChange={handleInputChange}
-                            value={values.description}
-                            name="password"
-                        />
-                    </label>
-                    <label>
-                        <input
-                            placeholder={"repeat password"}
-                            type="password"
-                            onChange={handleInputChange}
-                            value={values.dueDate}
-                            name="passwordToRepeat"
-                        />
-                        <p className="errorMessage">{dueDateError}</p>
-                    </label>
-                    <button className="okButton" type="button" onClick={() => handleOnClick()}>SIGN UP!</button>
-                    <button className="cancelButton" onClick={() => ""} >CANCEL</button>
-                </form>
-            </div>
-        </div>
+        <UserForm
+            name={'SIGN UP'}
+            userInput={userInput}
+            error={registerError}
+            handleOnSubmit={handleOnSubmit}
+        >
+            <Input
+                minLength={1}
+                type={'text'}
+                name={'username'}
+                method={setUsername}
+            />
+            <Input
+                minLength={8}
+                type={'password'}
+                name={'password'}
+                method={setPassword}
+            />
+            <Input
+                type={'password'}
+                name={'repeat password'}
+                method={setPasswordToRepeat}
+            />
+        </UserForm>
     )
 }
 
-export default connect(null, { setMessage })(Registration)
+const mapStateToProps = (store) => {
+    console.log(store.userValues)
+    return {
+        userInput: store.userValues,
+    }
+}
+
+export default connect(mapStateToProps, { setMessage, setUsername, setPassword, setPasswordToRepeat })(Registration)

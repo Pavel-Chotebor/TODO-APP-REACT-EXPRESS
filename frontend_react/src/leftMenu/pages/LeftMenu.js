@@ -9,17 +9,13 @@ const items = [
         title: 'ADD NEW TASK +'
     },
     {
+        link: '/todos/today',
+        title: 'TODAY'
+    },
+    {
         link: '/todos/allTodos',
         title: 'ACTIVE TASK'
     },
-    // {
-    //     link: '/todos/week',
-    //     title: 'NEXT 7 DAYS'
-    // },
-    // {
-    //     link: '/todos/network',
-    //     title: 'YOUR NETWORK'
-    // },
     {
         link: '/todos/done',
         title: 'DONE'

@@ -5,7 +5,7 @@ import './welcomePage.scss'
 const items = [
     {
         link: '/login',
-        title: 'LOG IN'
+        title: 'SIGN IN'
     },
     {
         link: '/register',

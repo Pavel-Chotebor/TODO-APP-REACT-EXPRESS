@@ -1,12 +1,12 @@
-.registrationBox {
+.userFormBox {
     margin: 9% auto;
-    .formBox {
+    .form {
         box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
             0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
             0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
         margin: 10% auto;
-        width: 550px;
-        height: 400px;
+        width: 650px;
+        height: 500px;
         background-color: white;
         border-radius: 10px;
         display: flex;
@@ -29,17 +29,9 @@
             font-size: 60px;
         }
     }
-
+    
     form {
         margin: 20% auto;
-    }
-
-    input {
-        margin-bottom: 8px;
-        font-size: 17px;
-        background: none;
-        border: none;
-        border-bottom: 1px solid rgb(238, 151, 37);
     }
 
     button {
@@ -49,23 +41,8 @@
         margin-right: 5px;
     }
 
-    .cancelButton:hover {
-        background-color: salmon;
-        transition: 300ms;
-    }
-
-    .okButton:hover {
-        background-color: rgb(139, 241, 92);
-        transition: 300ms;
-    }
-
     .errorMessage {
-        color: red;
-        font-size: 20px;
-    }
-
-    label {
-        display: flex;
-        flex-direction: column;
+        color: rgb(255, 94, 0);
+        font-size: 18px;
     }
 }

@@ -7,7 +7,8 @@ function TodoButton({ buttonName, buttonAction, img }) {
             <div class={buttonName}>
                 <button
                     onClick={() => buttonAction()}>
-                    <img src={img} />
+                    <img src={img}
+                    />
                 </button>
             </div>
         </div>

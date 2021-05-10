@@ -8,11 +8,11 @@ const jwt = require("jsonwebtoken");
 export const loginService = {
   authorizeUser: async ({ username, password }) => {
     if (!username && !password) {
-      throw tribesError(error.MISSING_INPUT, 'username and password')
+      throw todoAppError(error.MISSING_INPUT, 'username and password')
     } else if (!username) {
-      throw tribesError(error.MISSING_INPUT, 'username')
+      throw todoAppError(error.MISSING_INPUT, 'username')
     } else if (!password) {
-      throw tribesError(error.MISSING_INPUT, 'password')
+      throw todoAppError(error.MISSING_INPUT, 'password')
     }
     const userResponse = await loginService.returnUserResponseFromDB(username, password)
     return await loginService.generateUserToken(userResponse)

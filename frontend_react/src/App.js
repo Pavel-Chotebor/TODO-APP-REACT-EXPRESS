@@ -9,6 +9,11 @@ import WelcomePage from './pages/WelcomePage'
 import Registration from './registration/Registration'
 import IntroPage from './pages/IntroPage'
 import Login from './login/Login'
+import {
+  TransitionGroup,
+  CSSTransition
+} from "react-transition-group";
+import { getToday } from './services/dateService'
 
 function App({ todos }) {
   return (
@@ -25,7 +30,16 @@ function App({ todos }) {
           </IntroPage>
         </Route>
         <Route path="/welcome">
-        <IntroPage />
+          <IntroPage />
+        </Route>
+        <Route path="/todos/today">
+          <MainPage>
+            <TodoPage
+              titleOfPage="TODAY"
+              todos={todos.filter(todo => todo.dueDate === getToday() && !todo.isDone)}
+            >
+            </TodoPage>
+          </MainPage>
         </Route>
         <Route path="/todos/allTodos">
           <MainPage>

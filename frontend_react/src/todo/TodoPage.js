@@ -4,8 +4,9 @@ import PopMessage from '../popMessage/PopMessage'
 import { fetchTodos } from '../actions/todoActions'
 import { connect } from 'react-redux'
 import './todoPage.scss'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function TodoPage({ titleOfPage, todos, fetchTodos, todoFilterCondition }) {
+function TodoPage({ titleOfPage, todos, fetchTodos }) {
 
     useEffect(() => {
         fetchTodos()
@@ -17,12 +18,13 @@ function TodoPage({ titleOfPage, todos, fetchTodos, todoFilterCondition }) {
             <h1 className="title">{titleOfPage}</h1>
             <div className="innerBox">
                 <div className="todoList">
-                    {todos.map(todo =>
-                        <Todo todo={todo}
-                            key={todo.id}
-                        >
-                        </Todo>
-                    )}
+                    {todos.length < 1
+                        ? <h3 className="pageInfo">no tasks</h3>
+                        : todos.map(todo =>
+                            <Todo todo={todo}
+                                key={todo.id}
+                            />
+                        )}
                 </div>
             </div>
         </div>

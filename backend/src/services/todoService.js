@@ -15,6 +15,8 @@ export const todoService = {
         return todo
     },
     addNewTodo: async ({ userId }, todo) => {
+        let today = new Date();
+        let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         if (!todo.title.length) {
             throw todoAppError(error.MISSING_INPUT, 'title')
         }
@@ -23,8 +25,8 @@ export const todoService = {
         }
         const todoToSave = {
             ...todo,
-            isDone: 0,
-            createdDate: new Date(),
+            isDone: false,
+            createdDate: getToday(),
             userId
         }
         const savedTodo = await Todo.save(todoToSave)
@@ -66,3 +68,18 @@ export const todoService = {
         return 'todoToDelete'
     }
 }
+
+const getToday = () => {
+    let today = new Date()
+    let month = '' + (today.getMonth() + 1)
+    let day = '' + today.getDate()
+    let year = today.getFullYear()
+
+    if (month.length < 2)
+        month = '0' + month;
+    if (day.length < 2)
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+
