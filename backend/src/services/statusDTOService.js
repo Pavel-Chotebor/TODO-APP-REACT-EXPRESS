@@ -42,12 +42,6 @@ export const error = {
     message: 'bad request',
     createMessage: param => param,
   },
-  // MISSING_VALUE_IN_TOKEN_FIELD: {
-  //   statusCode: 400,
-  //   message: 'bad request',
-  //   createMessage: param => param,
-  // }
-
 }
 
 export const todoAppError = (err, messageParams) => {

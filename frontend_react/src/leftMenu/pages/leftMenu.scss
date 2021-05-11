@@ -1,7 +1,6 @@
 .leftMenu {
     width: 400px;
-    // background-color: rgb(248, 122, 64);
-    background-image: url("../../assets/gradient-orange.jpg");
+    background-image: url("../../backgroundImages/gradient-orange.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position-x: 60%;
@@ -17,7 +16,6 @@
     }
 
     .menuLink {
-        //  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
         margin-bottom: 5px;
         padding: 0;
     }

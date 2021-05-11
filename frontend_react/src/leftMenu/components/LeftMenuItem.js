@@ -10,7 +10,7 @@ function LeftMenuItem({ link, title }) {
                 </div>
             </Link>
         </div>
-    );
+    )
 }
 
 export default LeftMenuItem;

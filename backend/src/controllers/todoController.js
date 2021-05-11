@@ -1,5 +1,4 @@
 import { todoService } from '../services/todoService'
-// getAll * ,   save, edit, delete, share
 export const todoController = {
     getAllTodos: async (req, res, next) => {
         try {
@@ -9,12 +8,6 @@ export const todoController = {
             next(err)
         }
     },
-
-
-
-
-
-
     getTodo: async (req, res) => {
         const todo = await todoService.getTodoById(req.body)
         return res.status(200).json(todo)
@@ -27,13 +20,7 @@ export const todoController = {
             next(err)
         }
     },
-
-
-
-
-
     editTodo: async (req, res, next) => {
-        console.log('EDIT TODO Controller', req.body)
         try {
             res.status(201).json(await todoService.editTodo(req.body))
         }

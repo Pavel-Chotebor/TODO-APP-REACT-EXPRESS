@@ -5,7 +5,7 @@ export const popUpMessageActions = {
     SET_MESSAGE: 'SET_MESSAGE',
 }
 
-let timer = 10000
+let timer = 4000
 export const setMessage = (message) => dispatch => {
     dispatch({
         type: popUpMessageActions.SET_MESSAGE,

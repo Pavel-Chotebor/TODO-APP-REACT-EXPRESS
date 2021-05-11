@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import './input.scss'
 
-function Input({ type, name, maxLength, minLength, method }) {
-    const [value, setValue] = useState('');
+function Input({ type, name, maxLength, minLength, method, initialValue , isValid}) {
+    const [value, setValue] = useState(initialValue);
     const [errorMessage, setErrorMessage] = useState('')
+
+    // method(isValid, value)
 
     const handleInputChange = (e) => {
         const tempValue = e.target.value

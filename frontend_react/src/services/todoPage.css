@@ -1,8 +1,0 @@
-.todoPage {
-    display: grid;
-    grid-column: 2/4;
-    grid-gap: 150px;
-    border: 1px solid blue;
-    width: 100%;
-    height: 40vh;
-}

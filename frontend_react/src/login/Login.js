@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import apiService from '../services/apiService'
 import { setUsername, setPassword } from '../actions/userActions'
 import Input from '../common/Input'
-import UserForm from '../common/UserForm'
+import Form from '../common/Form'
 
 function Login({ userInput, setUsername, setPassword }) {
     const [loginError, setLogginError] = useState('')
@@ -37,9 +37,8 @@ function Login({ userInput, setUsername, setPassword }) {
     }
 
     return (
-            <UserForm
+            <Form
                 name={'SIGN IN'}
-                userInput={userInput}
                 error={loginError}
                 handleOnSubmit={handleOnSubmit}
             >
@@ -55,12 +54,11 @@ function Login({ userInput, setUsername, setPassword }) {
                     name={'password'}
                     method={setPassword}
                 />
-            </UserForm>
+            </Form>
     )
 }
 
 const mapStateToProps = (store) => {
-    console.log(store.userValues)
     return {
         userInput: store.userValues
     }

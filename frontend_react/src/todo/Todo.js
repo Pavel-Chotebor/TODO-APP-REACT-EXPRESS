@@ -47,14 +47,8 @@ function Todo({ todo }) {
     )
 }
 
-const mapStateToProps = (store) => {
-    console.log(store)
-    return {
-    }
-}
-
 export default connect(
-    mapStateToProps, {
+    null, {
     setTodoDone,
     deleteTodoReq,
     editTodo,

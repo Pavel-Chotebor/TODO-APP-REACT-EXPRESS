@@ -8,9 +8,9 @@ import {
     useHistory,
 } from "react-router-dom";
 import Input from '../common/Input'
-import UserForm from '../common/UserForm'
+import Form from '../common/Form'
 
-function Registration({ setUsername, setPassword, setPasswordToRepeat, userInput }) {
+function Registration({ setUsername, setPassword, setPasswordToRepeat, userInput, setMessage }) {
     let history = useHistory();
     const [registerError, setRegisterError] = useState('')
 
@@ -43,12 +43,13 @@ function Registration({ setUsername, setPassword, setPasswordToRepeat, userInput
     }
 
     return (
-        <UserForm
+        <Form
             name={'SIGN UP'}
             userInput={userInput}
             error={registerError}
             handleOnSubmit={handleOnSubmit}
         >
+            {/* <PopMessage message={'created'}></PopMessage> */}
             <Input
                 minLength={1}
                 type={'text'}
@@ -66,7 +67,7 @@ function Registration({ setUsername, setPassword, setPasswordToRepeat, userInput
                 name={'repeat password'}
                 method={setPasswordToRepeat}
             />
-        </UserForm>
+        </Form>
     )
 }
 

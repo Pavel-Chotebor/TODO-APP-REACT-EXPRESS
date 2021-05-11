@@ -36,9 +36,3 @@ function WelcomePage({ }) {
 }
 
 export default WelcomePage;
-
-{/* <ul>
-                    <li> LOG IN</li>
-                    <li> SIGN IN</li>
-                    <li> ABOUT PROJECT</li>
-                </ul> */}

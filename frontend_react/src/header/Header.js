@@ -2,8 +2,6 @@ import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './header.css'
-import img from "../assets/colorIcon.png"
-
 
 function Header({ name }) {
     return (
@@ -14,7 +12,6 @@ function Header({ name }) {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav>
-                        <Nav.Link href="#deets">SETTINGS</Nav.Link>
                         <Nav.Link href="/welcome">LOG OUT</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

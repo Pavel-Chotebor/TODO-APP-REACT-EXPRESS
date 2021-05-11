@@ -8,7 +8,6 @@ const visibilityOptions = {
 
 export const visibilityState = {
     [componentsToChangeVisibility.POP_UP_MESSAGE]: visibilityOptions.HIDDEN,
-    [componentsToChangeVisibility.EDIT_TODO_FORM]: visibilityOptions.HIDDEN,
 }
 export const hideComponentReducer = (state = visibilityState, action) => {
     switch (action.type) {

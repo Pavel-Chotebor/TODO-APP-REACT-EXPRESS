@@ -7,7 +7,6 @@ export const Todo = {
     },
     getTodoByid: async (todoId) => {
         const { results } = await db.query('SELECT * FROM todos WHERE id=? ', todoId)
-        console.log('todo from fb, ',  results[0])
         return results[0]
     },
     getAllTodos: async (userId) => {
@@ -27,5 +26,4 @@ export const Todo = {
         const { results } = await db.query('DELETE  FROM todos WHERE id=?', todoId)
         return results[0] 
     }
-
 }

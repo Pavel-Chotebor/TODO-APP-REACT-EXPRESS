@@ -17,8 +17,6 @@ function PopMessage({ message, visibility }) {
 }
 
 const mapStateToProps = (store) => {
-  console.log(store)
-  console.log(store.visibility.POP_UP_MESSAGE)
   return {
     visibility: store.visibility.POP_UP_MESSAGE,
     message: store.message,
