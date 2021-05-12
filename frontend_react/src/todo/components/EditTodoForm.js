@@ -4,12 +4,15 @@ import Input from '../../common/Input'
 import Form from '../../common/Form'
 import { editTodo, setTodoNotEdited } from '../../actions/todoActions'
 import { setTitle, setDueDate, setDescription } from '../../actions/todoFormActions'
+import './editTodoForm.scss'
 
 function EditTodoForm({ todo, todoValues, setTitle, setDueDate, setDescription, setTodoNotEdited, editTodo }) {
     const [addTodoError, setAddTodoError] = useState('')
+
     const handleOnSubmit = async () => {
         const areInputsValid = Object.values(todoValues).every(input => input.isValid)
         console.log(todoValues)
+
         if (areInputsValid) {
             editTodo(
                 {
@@ -18,13 +21,15 @@ function EditTodoForm({ todo, todoValues, setTitle, setDueDate, setDescription, 
                     description: todoValues.description.value,
                     dueDate: todoValues.dueDate.value,
                 })
+                setTodoNotEdited(todo)
         }
         else {
             setAddTodoError('Fields required')
         }
     }
+
     return (
-        <div className="addTodoForm">
+        <div className="editTodoForm">
             <Form
                 name={'edit'}
                 error={addTodoError}
@@ -38,26 +43,22 @@ function EditTodoForm({ todo, todoValues, setTitle, setDueDate, setDescription, 
                     type={'text'}
                     name={'title'}
                     method={setTitle}
-                    initialValue={todo.title}
-                    isValid={todoValues.title.isValid}
+                    // initialValue={todoValues.title}
                 />
                 <Input
                     type={'text'}
                     maxLength={50}
                     name={'description'}
                     method={setDescription}
-                    initialValue={todo.description}
-                    isValid={todoValues.description.isValid}
+                    // initialValue={todoValues.description}
                 />
                 <Input
                     minLength={1}
                     type={'date'}
                     name={'dueDate'}
                     method={setDueDate}
-                    initialValue={todo.dueDate}
-                    isValid={todoValues.dueDate.isValid}
+                    // initialValue={todoValues.dueDate}
                 />
-
             </Form>
         </div>
     )

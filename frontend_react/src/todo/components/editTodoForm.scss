@@ -1,41 +1,47 @@
-.editTodoForm   {
-     color: rgb(61, 59, 59);
-     padding:  20px 10px;
+@import "../../common/commonStyle.scss";
 
-    p{
-        color: rgb(4, 144, 187);
+.editTodoForm {
+    .formBox {
+        margin-top: 5%;
+        .inputBox {
+            margin: 0 auto;
+        }
+        .form {
+            width: 0;
+            margin: 0;
+            height: auto;
+            form {
+                margin: 1% auto;
+                padding: 20px 10px;
+                border-radius: 10px;
+                background-color: rgb(255, 255, 255);
+                min-width: 250px;
+                width: 30%;
+                box-shadow: $shadow-lg;
+            }
+        }
+        .leftBox {
+            display: none;
+        }
+        input {
+            color: rgb(87, 86, 86);
+            font-size: 15px;
+            border-bottom: 1px solid rgb(4, 144, 187);
+        }
+        button {
+            border: none;
+            background-color: white;
+            margin-right: 5px;
+        }
+
+        .cancelButton:hover {
+            background-color: salmon;
+            transition: 300ms;
+        }
+
+        .okButton:hover {
+            background-color: rgb(139, 241, 92);
+            transition: 300ms;
+        }
     }
-
-    label{
-        display: flex;
-        flex-direction: column;
-    }
-
-    input {
-        color: rgb(87, 86, 86);
-        margin-bottom: 8px;
-        font-size: 15px;
-        background:none;
-        border:none;
-        border-bottom: 1px solid rgb(4, 144, 187);
-    }
-
-    button{
-        border-radius: 5px;
-        border:none;
-        background-color: white;
-        margin-right: 5px;
-    }
-
-    
-    .cancelButton:hover {
-        background-color: salmon;
-        transition: 300ms;
-    }
-
-    .okButton:hover {
-        background-color: rgb(139, 241, 92);
-        transition: 300ms;
-    }
-
 }

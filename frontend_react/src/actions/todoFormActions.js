@@ -11,7 +11,7 @@ export const setTitle = (isValid, value) => ({
 
 export const setDescription = (value) => ({
     type: todoFormActions.SET_DESCRIPTION,
-    payload: { value }
+    payload: {value }
 })
 
 export const setDueDate = (isValid, value) => ({

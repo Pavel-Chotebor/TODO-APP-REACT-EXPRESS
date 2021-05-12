@@ -24,7 +24,9 @@ function Form({
                     </div>
                     <p className="errorMessage">{error}</p>
                     <button className="okButton" type="button" onClick={() => handleOnSubmit()}>{name}</button>
-                    <button className="cancelButton" onClick={() => cancelAction()} >{cancelButtonName}</button>
+                    {(cancelButtonName || cancelAction) &&
+                        <button className="cancelButton" onClick={() => cancelAction()} >{cancelButtonName}</button>
+                    }
                 </form>
             </div>
         </div>

@@ -46,9 +46,8 @@
     }
 
 
-    h4 {
-        z-index: -1;
-        position: absolute;
+    h4 {   //new menu button bug 
+        z-index: 1;
         font-weight: 600;
         margin: 10px 0px 0px 20px;
     }
