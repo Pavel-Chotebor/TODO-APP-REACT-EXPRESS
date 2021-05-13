@@ -4,9 +4,9 @@ export const todoFormActions = {
     SET_DUE_DATE: "SET_DUE_DATE",
 }
 
-export const setTitle = (isValid, value) => ({
+export const setTitle = (value, isValid, ) => ({
     type: todoFormActions.SET_TITLE,
-    payload: { isValid, value }
+    payload: { value, isValid  }
 })
 
 export const setDescription = (value) => ({
@@ -14,7 +14,7 @@ export const setDescription = (value) => ({
     payload: {value }
 })
 
-export const setDueDate = (isValid, value) => ({
+export const setDueDate = (value, isValid ) => ({
     type: todoFormActions.SET_DUE_DATE,
-    payload: { isValid, value }
+    payload: { value, isValid }
 })

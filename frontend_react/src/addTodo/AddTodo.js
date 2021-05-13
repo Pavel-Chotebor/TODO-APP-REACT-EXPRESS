@@ -14,6 +14,8 @@ function AddTodo({ todoValues, setTitle, setDueDate, setDescription, addTodoReq 
     let history = useHistory();
     const [addTodoError, setAddTodoError] = useState('')
 
+    console.log(todoValues)
+
     const handleOnSubmit = async () => {
         const areInputsValid = Object.values(todoValues).every(input => input.isValid)
         if (areInputsValid) {

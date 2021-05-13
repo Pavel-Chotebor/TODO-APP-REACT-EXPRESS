@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import './todoPage.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function TodoPage({ titleOfPage, todos, fetchTodos }) {
+function TodoPage({ titleOfPage, todos, fetchTodos, todoFilter }) {
 
     useEffect(() => {
         fetchTodos()
@@ -20,9 +20,9 @@ function TodoPage({ titleOfPage, todos, fetchTodos }) {
                 <div className="todoList">
                     {todos.length < 1
                         ? <h3 className="pageInfo">no tasks</h3>
-                        : todos.map(todo =>
+                        : todos.filter(todoFilter).map(todo =>
                             <Todo todo={todo}
-                                key={todo.id}
+                                key={todo.id + todo.title}
                             />
                         )}
                 </div>
@@ -31,4 +31,10 @@ function TodoPage({ titleOfPage, todos, fetchTodos }) {
     )
 }
 
-export default connect(null, { fetchTodos })(TodoPage)
+const mapStateToProps = (store) => {
+    return {
+        todos: store.todos
+    }
+}
+
+export default connect(mapStateToProps, { fetchTodos })(TodoPage)

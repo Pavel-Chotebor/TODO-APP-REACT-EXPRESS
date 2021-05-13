@@ -1,6 +1,6 @@
 import React from 'react';
 import './todo.scss'
-import EditTodo from './components/EditTodoForm'
+import EditTodoForm from './components/EditTodoForm'
 import { setTodoDone, editTodo, deleteTodoReq } from '../actions/todoActions'
 import { connect } from 'react-redux'
 import { setShow } from '../actions/hideComponentActions'
@@ -27,7 +27,7 @@ function Todo({ todo }) {
             </div>
             <div className="editTodoBox">
                 {todo.isEdited &&
-                    <EditTodo
+                    <EditTodoForm
                         todo={todo}
                         key={todo.id}
                     />
@@ -36,8 +36,9 @@ function Todo({ todo }) {
             {!todo.isEdited &&
                 <div className="menuSection">
                     <h4>≣</h4>
-                    <div class="buttonsBox">
+                    <div className="buttonsBox">
                         <TodoButtons
+                            key={todo.id}
                             todo={todo} >
                         </TodoButtons>
                     </div >

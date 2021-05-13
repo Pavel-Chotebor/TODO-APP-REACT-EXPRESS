@@ -13,7 +13,7 @@ function Form({
 
     return (
         <div className="formBox">
-            <PopMessage />
+            {/* <PopMessage /> */}
             <div className="form">
                 <div className="leftBox">
                     <h2>{name}</h2>

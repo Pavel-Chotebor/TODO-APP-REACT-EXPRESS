@@ -13,11 +13,11 @@ function Input({ type, name, maxLength, minLength, method, initialValue }) {
         if (minLength) {
             if (tempValue.length < minLength) {
                 setErrorMessage(minLength === 1 ? 'field cannot be empty' : 'minimal length is ' + minLength)
-                method(false, tempValue)
+                method(tempValue, false)
             }
             else {
                 setErrorMessage('')
-                method(true, tempValue)
+                method(tempValue, true)
             }
         } else {
             method(tempValue)

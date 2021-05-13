@@ -21,9 +21,9 @@ const deleteTodo = (todoId) => ({
     payload: todoId,
 });
 
-const updateTodo = (todoId) => ({
+const updateTodo = (todo) => ({
     type: todoActions.UPDATE_TODO,
-    payload: todoId,
+    payload: todo,
 })
 
 export const setTodoAsEdited = (todo) => dispatch => (
@@ -65,7 +65,7 @@ export const deleteTodoReq = (todo) => dispatch => {
 export const editTodo = (todo) => dispatch => {
     apiService.req('put', '/todos/edit', todo).then(
         dispatch(updateTodo(todo)),
-        dispatch(setMessage(todo.title + ' EDITED.'))
+        dispatch(setMessage(todo.title + ' EDITED.')),
     )
 }
 

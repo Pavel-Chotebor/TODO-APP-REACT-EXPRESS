@@ -5,17 +5,12 @@ import history from './history';
 import { connect } from 'react-redux'
 import AddTodo from './addTodo/AddTodo';
 import TodoPage from './todo/TodoPage'
-import WelcomePage from './pages/WelcomePage'
 import Registration from './registration/Registration'
 import IntroPage from './pages/IntroPage'
 import Login from './login/Login'
-import {
-  TransitionGroup,
-  CSSTransition
-} from "react-transition-group";
 import { getToday } from './services/dateService'
 
-function App({ todos }) {
+function App({ }) {
   return (
     <Router history={history}>
       <Switch>
@@ -36,7 +31,7 @@ function App({ todos }) {
           <MainPage>
             <TodoPage
               titleOfPage="TODAY"
-              todos={todos.filter(todo => todo.dueDate === getToday() && !todo.isDone)}
+              todoFilter={todo => todo.dueDate === getToday() && !todo.isDone}
             >
             </TodoPage>
           </MainPage>
@@ -45,7 +40,7 @@ function App({ todos }) {
           <MainPage>
             <TodoPage
               titleOfPage="ALL TASKS"
-              todos={todos.filter(todo => !todo.isDone)}
+              todoFilter={todo => !todo.isDone}
             >
             </TodoPage>
           </MainPage>
@@ -54,7 +49,7 @@ function App({ todos }) {
           <MainPage>
             <TodoPage
               titleOfPage="DONE TASKS"
-              todos={todos.filter(todo => todo.isDone)}
+              todoFilter={todo => todo.isDone}
             >
             </TodoPage>
           </MainPage>
@@ -69,11 +64,4 @@ function App({ todos }) {
   )
 }
 
-const mapStateToProps = (store) => {
-  console.log(store.todos)
-  return {
-    todos: store.todos
-  }
-}
-
-export default connect(mapStateToProps, null)(App)
+export default connect(null, null)(App)

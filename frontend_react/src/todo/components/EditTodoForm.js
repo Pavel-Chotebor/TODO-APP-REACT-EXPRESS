@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import Input from '../../common/Input'
 import Form from '../../common/Form'
@@ -6,13 +6,26 @@ import { editTodo, setTodoNotEdited } from '../../actions/todoActions'
 import { setTitle, setDueDate, setDescription } from '../../actions/todoFormActions'
 import './editTodoForm.scss'
 
-function EditTodoForm({ todo, todoValues, setTitle, setDueDate, setDescription, setTodoNotEdited, editTodo }) {
+function EditTodoForm({
+    todo,
+    todoValues,
+    setTitle,
+    setDueDate,
+    setDescription,
+    setTodoNotEdited,
+    editTodo
+}) {
+
     const [addTodoError, setAddTodoError] = useState('')
+
+    useEffect(() => {
+        setTitle(todo.title, true)
+        setDescription(todo.description, true)
+        setDueDate(todo.dueDate, true)
+    }, [])
 
     const handleOnSubmit = async () => {
         const areInputsValid = Object.values(todoValues).every(input => input.isValid)
-        console.log(todoValues)
-
         if (areInputsValid) {
             editTodo(
                 {
@@ -20,8 +33,8 @@ function EditTodoForm({ todo, todoValues, setTitle, setDueDate, setDescription, 
                     title: todoValues.title.value,
                     description: todoValues.description.value,
                     dueDate: todoValues.dueDate.value,
+                    isEdited: false
                 })
-                setTodoNotEdited(todo)
         }
         else {
             setAddTodoError('Fields required')
@@ -43,21 +56,21 @@ function EditTodoForm({ todo, todoValues, setTitle, setDueDate, setDescription, 
                     type={'text'}
                     name={'title'}
                     method={setTitle}
-                    // initialValue={todoValues.title}
+                    initialValue={todo.title}
                 />
                 <Input
                     type={'text'}
                     maxLength={50}
                     name={'description'}
                     method={setDescription}
-                    // initialValue={todoValues.description}
+                    initialValue={todo.description}
                 />
                 <Input
                     minLength={1}
                     type={'date'}
                     name={'dueDate'}
                     method={setDueDate}
-                    // initialValue={todoValues.dueDate}
+                    initialValue={todo.dueDate}
                 />
             </Form>
         </div>
@@ -71,40 +84,11 @@ const mapStateToProps = (store) => {
     }
 }
 
-export default connect(mapStateToProps, { editTodo, setTodoNotEdited, setTitle, setDueDate, setDescription })(EditTodoForm)
-
-/*
-
-import React from 'react';
-import { editTodo, setTodoNotEdited } from '../../actions/todoActions'
-import { connect } from 'react-redux'
-import TodoForm from '../../common/TodoForm'
-import './editTodoForm.scss'
-
-
-function EditTodoFrom({ todo, setTodoNotEdited, editTodo }) {
-    return (
-        <div className="editTodoForm">
-            <p>EDITING: {todo.title}</p>
-            <TodoForm
-                className="addTodoForm"
-                requestToBE={editTodo}
-                todoId={todo.id}
-                cancelAction={() => setTodoNotEdited(todo)}
-                cancelButtonName="CANCEL"
-                initialValues={
-                    {
-                        title: todo.title,
-                        description: todo.description,
-                        dueDate: todo.dueDate,
-                    }
-                }
-            />
-        </div>
-    )
-}
-
-export default connect(null, { editTodo, setTodoNotEdited })(EditTodoFrom)
-
-
-*/
+export default connect(mapStateToProps, {
+    editTodo,
+    setTitle,
+    setDueDate,
+    setDescription,
+    setTodoNotEdited
+})
+    (EditTodoForm)

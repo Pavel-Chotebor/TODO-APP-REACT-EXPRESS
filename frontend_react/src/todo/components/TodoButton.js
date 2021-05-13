@@ -3,8 +3,8 @@ import './todoButton.scss'
 
 function TodoButton({ buttonName, buttonAction, img }) {
     return (
-        <div class="buttonBox">
-            <div class={buttonName}>
+        <div className="buttonBox">
+            <div className={buttonName}>
                 <button
                     onClick={() => buttonAction()}>
                     <img src={img}
