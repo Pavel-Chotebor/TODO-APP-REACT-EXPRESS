@@ -1,12 +1,12 @@
 import React from 'react';
 import './todo.scss'
 import EditTodoForm from './components/EditTodoForm'
-import { setTodoDone, editTodo, deleteTodoReq } from '../actions/todoActions'
+import { handleVisibilityOfTodoMenu } from '../actions/todoActions'
 import { connect } from 'react-redux'
 import { setShow } from '../actions/hideComponentActions'
 import TodoButtons from './components/TodoButtons'
 
-function Todo({ todo }) {
+function Todo({ todo, handleVisibilityOfTodoMenu }) {
     return (
         <div className="todoBox">
             <div className="todoHeader">
@@ -25,6 +25,9 @@ function Todo({ todo }) {
                 <div className="datesBox">
                 </div>
             </div>
+            <button className="menuButton" onClick={() => handleVisibilityOfTodoMenu(todo)}>
+                <img src="/images/menu-button.png" alt="menuButton" />
+            </button>
             <div className="editTodoBox">
                 {todo.isEdited &&
                     <EditTodoForm
@@ -35,13 +38,14 @@ function Todo({ todo }) {
             </div>
             {!todo.isEdited &&
                 <div className="menuSection">
-                    <h4>≣</h4>
-                    <div className="buttonsBox">
-                        <TodoButtons
-                            key={todo.id}
-                            todo={todo} >
-                        </TodoButtons>
-                    </div >
+                    {todo.isMenuOppened &&
+                        < div className="buttonsBox">
+                            < TodoButtons
+                                key={todo.id}
+                                todo={todo} >
+                            </TodoButtons>
+                        </div >
+                    }
                 </div>
             }
         </div >
@@ -50,9 +54,7 @@ function Todo({ todo }) {
 
 export default connect(
     null, {
-    setTodoDone,
-    deleteTodoReq,
-    editTodo,
+    handleVisibilityOfTodoMenu,
     setShow
 })
     (Todo)

@@ -33,7 +33,8 @@ function EditTodoForm({
                     title: todoValues.title.value,
                     description: todoValues.description.value,
                     dueDate: todoValues.dueDate.value,
-                    isEdited: false
+                    isEdited: false,
+                    isMenuOppened:false,
                 })
         }
         else {

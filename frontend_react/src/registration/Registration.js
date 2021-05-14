@@ -49,7 +49,6 @@ function Registration({ setUsername, setPassword, setPasswordToRepeat, userInput
             error={registerError}
             handleOnSubmit={handleOnSubmit}
         >
-            {/* <PopMessage message={'created'}></PopMessage> */}
             <Input
                 minLength={1}
                 type={'text'}

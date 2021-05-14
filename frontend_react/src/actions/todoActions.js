@@ -9,6 +9,7 @@ export const todoActions = {
     ADD_TODO: "ADD_TODO",
     EDIT_TODO: "EDIT_TODO",
     DELETE_TODO: "DELETE_TODO",
+    OPEN_TODO_MENU: "OPEN_TODO_MENU"
 }
 
 const updateTodos = (todos) => ({
@@ -32,6 +33,14 @@ export const setTodoAsEdited = (todo) => dispatch => (
         isEdited: true,
     }))
 )
+
+export const handleVisibilityOfTodoMenu = (todo) => dispatch => {
+    let visibility = todo.isMenuOppened
+    dispatch(updateTodo({
+        ...todo,
+        isMenuOppened: visibility ? false : true,
+    }))
+}
 
 export const setTodoNotEdited = (todo) => dispatch => (
     dispatch(updateTodo({

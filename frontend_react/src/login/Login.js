@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import apiService from '../services/apiService'
 import { setUsername, setPassword } from '../actions/userActions'
 import Input from '../common/Input'
+import PopMessage from '../popMessage/PopMessage'
 import Form from '../common/Form'
 
 function Login({ userInput, setUsername, setPassword }) {
@@ -37,24 +38,25 @@ function Login({ userInput, setUsername, setPassword }) {
     }
 
     return (
-            <Form
-                name={'SIGN IN'}
-                error={loginError}
-                handleOnSubmit={handleOnSubmit}
-            >
-                <Input
-                    minLength={1}
-                    type={'text'}
-                    name={'username'}
-                    method={setUsername}
-                />
-                <Input
-                    minLength={1}
-                    type={'password'}
-                    name={'password'}
-                    method={setPassword}
-                />
-            </Form>
+        <Form
+            name={'SIGN IN'}
+            error={loginError}
+            handleOnSubmit={handleOnSubmit}
+        >
+            <PopMessage message={'created'}></PopMessage>
+            <Input
+                minLength={1}
+                type={'text'}
+                name={'username'}
+                method={setUsername}
+            />
+            <Input
+                minLength={1}
+                type={'password'}
+                name={'password'}
+                method={setPassword}
+            />
+        </Form>
     )
 }
 
