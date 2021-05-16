@@ -37,18 +37,19 @@ function Todo({ todo, handleVisibilityOfTodoMenu }) {
                 }
             </div>
             {!todo.isEdited &&
-                <div className="menuSection">
-                    {todo.isMenuOppened &&
-                        < div className="buttonsBox">
-                            < TodoButtons
-                                key={todo.id}
-                                todo={todo} >
-                            </TodoButtons>
-                        </div >
-                    }
-                </div>
+                    <div className="menuSection">
+                        {todo.isMenuOppened &&
+                            < div className="buttonsBox">
+                                < TodoButtons
+                                    key={todo.id}
+                                    todo={todo} >
+                                </TodoButtons>
+                            </div >
+                        }
+                    </div>
             }
         </div >
+
     )
 }
 
