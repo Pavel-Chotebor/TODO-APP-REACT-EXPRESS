@@ -14,7 +14,7 @@ const items = [
     },
     {
         link: '/todos/allTodos',
-        title: 'ACTIVE TASK'
+        title: 'ACTIVE TASKS'
     },
     {
         link: '/todos/done',

@@ -5,6 +5,7 @@ import { setUsername, setPassword } from '../actions/userActions'
 import Input from '../common/Input'
 import PopMessage from '../popMessage/PopMessage'
 import Form from '../common/Form'
+import './login.scss'
 
 function Login({ userInput, setUsername, setPassword }) {
     const [loginError, setLogginError] = useState('')
@@ -38,7 +39,7 @@ function Login({ userInput, setUsername, setPassword }) {
     }
 
     return (
-        <Form
+        <Form className="loginForm"
             name={'SIGN IN'}
             error={loginError}
             handleOnSubmit={handleOnSubmit}

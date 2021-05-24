@@ -21,9 +21,8 @@ export const todoController = {
         }
     },
     editTodo: async (req, res, next) => {
-        console.log('ed ',)
         try {
-            res.status(201).json(await todoService.editTodo(req.body))
+            res.status(200).json(await todoService.editTodo(req.body))
         }
         catch (err) {
             next(err)

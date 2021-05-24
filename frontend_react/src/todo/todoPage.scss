@@ -32,3 +32,11 @@
         flex-direction: column;
     }
 }
+
+@media (max-width: 700px) {
+    .todoPage .todoList{
+        display: flex;
+        flex-direction: column;
+        padding-top: 30%;
+    }
+}

@@ -17,7 +17,7 @@ router.post('/login', loginController.login)
 
 router.use(verifyAccesToken)  
 router.get('/todos/getAll', todoController.getAllTodos)
-router.get('/todos/getTodo', todoController.getTodo)
+router.get('/todos/getTodo/', todoController.getTodo)
 router.post('/todos/add', todoController.addNewTodo)
 router.put('/todos/edit', todoController.editTodo)
 router.put('/todos/setTodoDone', todoController.setTodoDone)

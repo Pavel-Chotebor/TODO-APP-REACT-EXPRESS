@@ -1,3 +1,10 @@
 .addTodoForm {
     margin: 3% auto;
 }
+
+@media (max-width: 1000px) {
+    .formBox .form{
+        width: 350px;
+        height:auto;
+    }
+}

@@ -6,11 +6,10 @@ export const verifyAccesToken = (req, res, next) => {
         return res.status(401)
             .json(todoAppError(error.UNAUTHORIZED_REQUEST, 'Token is missing'))
     }
-
     const authHeader = req.headers.authorization
     let token = null;
     try {
-        token = jwt.verify(authHeader.split(' ')[1], process.env.PRIVATE_KEY_VALUE);
+        token = jwt.verify(authHeader.split(' ')[1], process.env.PRIVATE_KEY_VALUE)
     } catch (e) {
         return res.status(401).json({
             status: 'error',
@@ -28,6 +27,7 @@ export const verifyAccesToken = (req, res, next) => {
             }
             )
     }
-    req.authToken = token;
+    req.authToken = token
+    console.log('AUTH TOKEN!!!!222  ', req.authToken = token)
     next();
 }

@@ -13,63 +13,7 @@
 //         flex-direction: row;
 //     }
 
-//     .leftBox {
-//         color: rgb(255, 81, 0);
-//         background-color: rgb(46, 41, 41);
-//         width: 30%;
-//         box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-//             0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-//             0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
-//         border-radius: 10px 0 0 10px;
-
-//         h2 {
-//             margin-top: 100%;
-//             text-align: center;
-//             font-family: "Kristi", cursive;
-//             font-size: 60px;
-//         }
-//     }
-
-//     form {
-//         margin: 20% auto;
-//     }
-
-//     input {
-//         margin-bottom: 8px;
-//         font-size: 17px;
-//         background: none;
-//         border: none;
-//         border-bottom: 1px solid rgb(238, 151, 37);
-//     }
-
-//     button {
-//         border-radius: 5px;
-//         border: none;
-//         background-color: rgb(185, 185, 185);
-//         margin-right: 5px;
-//     }
-
-//     .cancelButton:hover {
-//         background-color: salmon;
-//         transition: 300ms;
-//     }
-
-//     .okButton:hover {
-//         background-color: rgb(139, 241, 92);
-//         transition: 300ms;
-//     }
-
-//     .errorMessage {
-//         color: red;
-//         font-size: 20px;
-//     }
-
-//     label {
-//         display: flex;
-//         flex-direction: column;
-//     }
-
-//     PopMessage{
-//         background-color:red;
-//     }
-// }
+@media (max-width: 380px) {
+    .formBox .form {
+    }
+}
